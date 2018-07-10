@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    
+
     path('restaurants/list/',views.restaurant_list ,name='restaurant-list'),
     path('restaurants/detail/<int:restaurant_id>/',views.restaurant_detail ,name='restaurant-detail'),
 
@@ -30,5 +30,6 @@ urlpatterns = [
     path('restaurants/delete/<int:restaurant_id>/',views.restaurant_delete ,name='restaurant-delete'),
 ]
 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 if settings.DEBUG:
     urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
